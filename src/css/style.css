@@ -1,0 +1,64 @@
+body {
+    background: linear-gradient( #bbb, transparent 1px), linear-gradient( 90deg, #bbb, transparent 1px);
+    background-size: 15px 15px;
+    background-position: center center;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+}
+
+.addTicket {
+    width: 200px;
+    padding: 10px;
+    align-self: flex-end;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.ticket {
+    display: flex;
+    padding: 15px;
+    border: 1px solid black;
+    border-bottom: none;
+    background-color: #fff;
+    justify-content: space-between;
+}
+
+.ticket:first-of-type {
+    margin-top: 15px;
+}
+
+.ticket:last-of-type {
+    border-bottom: 1px solid black;
+}
+
+.ticketStatus {
+    /* align-self: start; */
+
+}
+
+.ticketName {
+
+}
+
+.ticketDate {
+    /* margin-left: 20px; */
+
+}
+
+.editTicket {
+    /* align-self: end; */
+
+}
+
+.deleteTicket {
+    margin-left: 20px;
+
+}
+
