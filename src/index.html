@@ -1,41 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div class="container">
-        <button class="addTicket">Добавить тикет</button>
-     
-        <div class="ticket">
-            <input class="ticketStatus" type="checkbox">
-            <div class="ticketName">ticket 1</div>
-            <div class="ticketDate">06.02.2024</div>
-            <div class="ticketButtons">
-                <button class="editTicket">Редактировать</button>
-                <button class="deleteTicket">Удалить</button>
-            </div>
-        </div>
-        <div class="ticket">
-            <input class="ticketStatus" type="checkbox">
-            <div class="ticketName">ticket 2</div>
-            <div class="ticketDate">06.02.2024</div>
-            <div class="ticketButtons">
-                <button class="editTicket">Редактировать</button>
-                <button class="deleteTicket">Удалить</button>
-            </div>
-        </div>
-    </div>
+        <button class="addTicketBtn">Добавить тикет</button>
 
-    <div class="subscribe">
-        <form class="subscribe-form" method="POST" action="http://localhost:7070">
-          <input class="name" name="name" class="input" required>
-          <input class="phone" name="phone" class="input" required>
-          <button class="btn">Записаться</button>
-          <button class="unsubscribe-btn">Отписаться</button>
-        </form>
-      </div>
+
+        <!--Add Ticket-->
+        <div class="modalTicket addTicket hidden">
+            <div class="formHeader">Добавить тикет</div>
+            <form class="addTicketForm">
+                <div class="addTicketInputs">
+                    Краткое описание
+                    <input class="shortDescription" name="shortDescription">
+                    Подробное описание
+                    <textarea class="fullDescription" name="fullDescription"></textarea>
+                </div>
+                <div class="formButtons">
+                    <button class="cancelBtn">Отмена</button>
+                    <button class="okBtn">Ок</button>
+                </div>
+            </form>
+        </div>
+
+        <!--Edit Ticket-->
+        <div class="modalTicket editTicket hidden">
+            <div class="formHeader">Изменить тикет</div>
+            <form class="editTicketForm">
+                <div class="addTicketInputs">
+                    Краткое описание
+                    <input class="shortDescription" name="shortDescription">
+                    Подробное описание
+                    <textarea class="fullDescription" name="fullDescription"></textarea>
+                </div>
+                <div class="formButtons">
+                    <button class="cancelBtn">Отмена</button>
+                    <button class="okBtn">Ок</button>
+                </div>
+            </form>
+        </div>
+
+        <!--Delete Ticket-->
+        <div class="modalTicket deleteTicket hidden">
+            <div class="formHeader">Удалить тикет</div>
+            <form class="deleteTicketForm">
+                <div class="addTicketInputs">Вы уверены, что хотите удалить этот тикет? Это действие необратимо.</div>
+                <div class="formButtons">
+                    <button class="cancelBtn">Отмена</button>
+                    <button class="okBtn">Ок</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- <div class="ticket" data-id="2">
+            <div class="shortTicket">
+                <input class="ticketStatus" type="checkbox">
+                <div class="ticketName">ticket 1</div>
+                <div class="ticketDate">06.02.2024</div>
+                <div class="ticketButtons">
+                    <button class="editTicketBtn">Редактировать</button>
+                    <button class="deleteTicketBtn">Удалить</button>
+                </div>
+            </div>
+            <div class="fullTicket hidden">Подробное описание</div>
+        </div>
+        <div class="ticket">
+            <div class="shortTicket">
+                <input class="ticketStatus" type="checkbox">
+                <div class="ticketName">ticket 2</div>
+                <div class="ticketDate">06.02.2024</div>
+                <div class="ticketButtons">
+                    <button class="editTicketBtn">Редактировать</button>
+                    <button class="deleteTicketBtn">Удалить</button>
+                </div>
+            </div>
+            <div class="fullTicket hidden">Подробное описание</div>
+        </div> -->
+
+<!-- 
+        <div class="subscribe">
+            <form class="subscribe-form" method="POST" action="http://localhost:7070">
+                <input class="name" name="name" class="input" required>
+                <input class="phone" name="phone" class="input" required>
+                <button class="btn">Записаться</button>
+                <button class="unsubscribe-btn">Отписаться</button>
+            </form>
+        </div> -->
 </body>
+
 </html>

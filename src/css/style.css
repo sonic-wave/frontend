@@ -6,28 +6,90 @@ body {
     box-sizing: border-box;
 }
 
+.hidden {
+    display: none;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     padding: 100px;
 }
 
-.addTicket {
+.addTicketBtn {
     width: 200px;
     padding: 10px;
     align-self: flex-end;
     background-color: #fff;
     border: 1px solid black;
     border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.modalTicket {
+    background-color: #fff;
+    width: 800px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.formHeader {
+    text-align: center;
+}
+
+.addTicketInputs {
+    margin: 15px;
+}
+
+.shortDescription, .fullDescription {
+    border: 1px solid black;
+    margin: 10px 0;
+}
+
+.shortDescription {
+    padding: 5px;
+}
+
+.fullDescription {
+    resize: none;
+    min-height: 80px;
+}
+
+.addTicketInputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.formButtons {
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px;
+}
+
+.cancelBtn, .okBtn {
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.cancelBtn {
+    margin-right: 15px;
 }
 
 .ticket {
     display: flex;
+    flex-direction: column;
     padding: 15px;
     border: 1px solid black;
     border-bottom: none;
     background-color: #fff;
-    justify-content: space-between;
+    width: 100%;
 }
 
 .ticket:first-of-type {
@@ -38,27 +100,34 @@ body {
     border-bottom: 1px solid black;
 }
 
-.ticketStatus {
-    /* align-self: start; */
+.shortTicket {
+    display: flex;
+    justify-content: space-between;
+}
 
+.fullTicket {
+    padding: 20px;
+}
+
+.ticketStatus {
+    width: 20%;
 }
 
 .ticketName {
-
+    width: 40%;
 }
 
 .ticketDate {
     /* margin-left: 20px; */
+    width: 20%;
 
 }
 
-.editTicket {
-    /* align-self: end; */
-
+.ticketButtons {
+    width: 20%;
 }
 
-.deleteTicket {
+.deleteTicketBtn {
     margin-left: 20px;
 
 }
-
