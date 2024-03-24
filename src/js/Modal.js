@@ -37,7 +37,13 @@ okBtn.addEventListener("click", (e) => {
     if (xhr.readyState !== 4) return;
 
     const ticket = xhr.response;
-    const newTicket = new Ticket(ticket.id, ticket.name, ticket.fullDescription, ticket.status, ticket.created);
+    const newTicket = new Ticket(
+      ticket.id,
+      ticket.name,
+      ticket.fullDescription,
+      ticket.status,
+      ticket.created,
+    );
     newTicket.createTicket();
     addTicket.classList.add("hidden");
   };
@@ -73,9 +79,15 @@ editTicket.querySelector(".okBtn").addEventListener("click", (e) => {
   e.preventDefault();
 
   const body = new FormData();
-  body.append('id', currentTicket.id);
-  body.append('shortDescription', editTicketForm.querySelector('.shortDescription').value);
-  body.append('fullDescription', editTicketForm.querySelector('.fullDescription').value);
+  body.append("id", currentTicket.id);
+  body.append(
+    "shortDescription",
+    editTicketForm.querySelector(".shortDescription").value,
+  );
+  body.append(
+    "fullDescription",
+    editTicketForm.querySelector(".fullDescription").value,
+  );
 
   const xhr = new XMLHttpRequest();
 
@@ -108,8 +120,7 @@ deleteTicket.querySelector(".okBtn").addEventListener("click", (e) => {
   };
 
   xhr.open("DELETE", "http://localhost:7070/" + currentTicket.id);
-  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
   xhr.send();
 });
