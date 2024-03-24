@@ -1,3 +1,3 @@
-https://sonic-wave.github.io/frontend/
+Ссылка на развернутый проект:
 
-<!-- [![Build status](https://ci.appveyor.com/api/projects/status/qxs7ujyffjtntq94?svg=true)](https://ci.appveyor.com/project/sonic-wave/popover) -->
+https://sonic-wave.github.io/frontend/
