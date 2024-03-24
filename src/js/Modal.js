@@ -1,5 +1,4 @@
 import Ticket from "./Ticket";
-import createTicket from "./createTicket";
 import editTicketFunc from "./editTicketFunc";
 import deleteTicketFunc from "./deleteTicketFunc";
 
@@ -9,7 +8,7 @@ const cancelBtn = addTicket.querySelector(".cancelBtn");
 const okBtn = addTicket.querySelector(".okBtn");
 const addTicketForm = addTicket.querySelector(".addTicketForm");
 const container = document.querySelector(".container");
-const tickets = document.querySelectorAll(".ticket");
+let editTicketBtn = document.querySelector(".editTicketBtn");
 let currentTicket;
 
 // Кнопка "Добавить тикет"
@@ -38,7 +37,8 @@ okBtn.addEventListener("click", (e) => {
     if (xhr.readyState !== 4) return;
 
     const ticket = xhr.response;
-    createTicket(ticket);
+    const newTicket = new Ticket(ticket.id, ticket.name, ticket.fullDescription, ticket.status, ticket.created);
+    newTicket.createTicket();
     addTicket.classList.add("hidden");
   };
 
@@ -49,7 +49,6 @@ okBtn.addEventListener("click", (e) => {
 
 // Кнопка "Редактировать тикет"
 
-let editTicketBtn = document.querySelectorAll(".editTicketBtn");
 const editTicket = document.querySelector(".editTicket");
 const editTicketForm = editTicket.querySelector(".editTicketForm");
 
@@ -70,24 +69,13 @@ container.addEventListener("click", (e) => {
   }
 });
 
-// editTicketBtn.forEach(el => el.addEventListener('click', (e) => {
-//     e.preventDefault();
-
-//     editTicket.classList.remove('hidden');
-//   }))
-
-//   editTicket.querySelector('.cancelBtn').addEventListener('click', (e) => {
-//     e.preventDefault();
-
-//     editTicket.classList.add('hidden');
-//   })
-
 editTicket.querySelector(".okBtn").addEventListener("click", (e) => {
   e.preventDefault();
 
-  const body = new FormData(editTicketForm);
-
-  console.log(e.target.parentElement);
+  const body = new FormData();
+  body.append('id', currentTicket.id);
+  body.append('shortDescription', editTicketForm.querySelector('.shortDescription').value);
+  body.append('fullDescription', editTicketForm.querySelector('.fullDescription').value);
 
   const xhr = new XMLHttpRequest();
 
@@ -106,20 +94,7 @@ editTicket.querySelector(".okBtn").addEventListener("click", (e) => {
 
 // Кнопка "Удалить тикет"
 
-const deleteTicketBtn = document.querySelectorAll(".deleteTicketBtn");
 const deleteTicket = document.querySelector(".deleteTicket");
-const deleteTicketForm = deleteTicket.querySelector(".deleteTicketForm");
-
-// deleteTicketBtn.forEach(el => el.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     deleteTicket.classList.remove('hidden');
-//   }))
-
-//   deleteTicket.querySelector('.cancelBtn').addEventListener('click', (e) => {
-//     e.preventDefault();
-
-//     deleteTicket.classList.add('hidden');
-//   })
 
 deleteTicket.querySelector(".okBtn").addEventListener("click", (e) => {
   e.preventDefault();
@@ -132,7 +107,9 @@ deleteTicket.querySelector(".okBtn").addEventListener("click", (e) => {
     deleteTicket.classList.add("hidden");
   };
 
-  xhr.open("DELETE", "http://localhost:7070/");
+  xhr.open("DELETE", "http://localhost:7070/" + currentTicket.id);
+  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
 
   xhr.send();
 });
