@@ -111,6 +111,7 @@ body {
 
 .ticketStatus {
     width: 20%;
+    
 }
 
 .ticketName {
@@ -118,7 +119,6 @@ body {
 }
 
 .ticketDate {
-    /* margin-left: 20px; */
     width: 20%;
 
 }
@@ -129,5 +129,4 @@ body {
 
 .deleteTicketBtn {
     margin-left: 20px;
-
 }

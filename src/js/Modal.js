@@ -59,7 +59,6 @@ const editTicket = document.querySelector(".editTicket");
 const editTicketForm = editTicket.querySelector(".editTicketForm");
 
 container.addEventListener("click", (e) => {
-  e.preventDefault();
   if (e.target.matches(".editTicketBtn")) {
     editTicket.classList.remove("hidden");
     currentTicket = e.target.closest(".ticket");
@@ -72,6 +71,32 @@ container.addEventListener("click", (e) => {
   if (e.target.matches(".deleteTicketBtn")) {
     deleteTicket.classList.remove("hidden");
     currentTicket = e.target.closest(".ticket");
+  }
+  if (e.target.matches(".ticket")) {
+    console.log(e.target.querySelector(".fullTicket"));
+    const ticket = e.target.querySelector(".fullTicket");
+    ticket.classList.toggle("hidden");
+  }
+});
+
+container.addEventListener("change", (e) => {
+  if (e.target.matches(".ticketStatus")) {
+    currentTicket = e.target.closest(".ticket");
+    const body = new FormData();
+    body.append("id", currentTicket.id);
+    body.append("status", e.target.checked);
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState !== 4) return;
+    };
+
+    xhr.open("POST", "http://localhost:7070/?method=editStatus");
+
+    xhr.responseType = "json";
+
+    xhr.send(body);
   }
 });
 
