@@ -63,10 +63,12 @@ container.addEventListener("click", (e) => {
     editTicket.classList.remove("hidden");
     currentTicket = e.target.closest(".ticket");
   }
-  if (e.target.matches(".cancelBtn")) {
-    editTicket.classList.add("hidden");
-    deleteTicket.classList.add("hidden");
-  }
+  // if (e.target.matches(".cancelBtn")) {
+  //   console.log('yes')
+  //   editTicket.classList.add("hidden");
+  //   deleteTicket.classList.add("hidden");
+  //   console.log('yes')
+  // }
 
   if (e.target.matches(".deleteTicketBtn")) {
     deleteTicket.classList.remove("hidden");
@@ -129,6 +131,12 @@ editTicket.querySelector(".okBtn").addEventListener("click", (e) => {
   xhr.send(body);
 });
 
+editTicket.querySelector(".cancelBtn").addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log('cancel');
+    editTicket.classList.add("hidden");
+})
+
 // Кнопка "Удалить тикет"
 
 const deleteTicket = document.querySelector(".deleteTicket");
@@ -149,3 +157,9 @@ deleteTicket.querySelector(".okBtn").addEventListener("click", (e) => {
 
   xhr.send();
 });
+
+deleteTicket.querySelector(".cancelBtn").addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log('cancel');
+  deleteTicket.classList.add("hidden");
+})
