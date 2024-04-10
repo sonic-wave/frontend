@@ -132,10 +132,10 @@ editTicket.querySelector(".okBtn").addEventListener("click", (e) => {
 });
 
 editTicket.querySelector(".cancelBtn").addEventListener("click", (e) => {
-    e.preventDefault();
-    console.log('cancel');
-    editTicket.classList.add("hidden");
-})
+  e.preventDefault();
+  console.log("cancel");
+  editTicket.classList.add("hidden");
+});
 
 // Кнопка "Удалить тикет"
 
@@ -160,6 +160,6 @@ deleteTicket.querySelector(".okBtn").addEventListener("click", (e) => {
 
 deleteTicket.querySelector(".cancelBtn").addEventListener("click", (e) => {
   e.preventDefault();
-  console.log('cancel');
+  console.log("cancel");
   deleteTicket.classList.add("hidden");
-})
+});

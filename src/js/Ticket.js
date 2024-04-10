@@ -1,6 +1,6 @@
 export default class Ticket {
   constructor(id, name, fullDescription, status, created) {
-      (this.id = id),
+    (this.id = id),
       (this.name = name),
       (this.fullDescription = fullDescription),
       (this.status = status),
