@@ -48,7 +48,7 @@ okBtn.addEventListener("click", (e) => {
     addTicket.classList.add("hidden");
   };
 
-  xhr.open("POST", "http://localhost:7070/?method=createTicket");
+  xhr.open("POST", "https://backend-44i7.onrender.com/?method=createTicket");
   xhr.responseType = "json";
   xhr.send(body);
 });
@@ -92,7 +92,7 @@ container.addEventListener("change", (e) => {
       if (xhr.readyState !== 4) return;
     };
 
-    xhr.open("POST", "http://localhost:7070/?method=editStatus");
+    xhr.open("POST", "https://backend-44i7.onrender.com/?method=editStatus");
 
     xhr.responseType = "json";
 
@@ -122,7 +122,7 @@ editTicket.querySelector(".okBtn").addEventListener("click", (e) => {
     editTicket.classList.add("hidden");
   };
 
-  xhr.open("POST", "http://localhost:7070/?method=editTicket");
+  xhr.open("POST", "https://backend-44i7.onrender.com/?method=editTicket");
 
   xhr.responseType = "json";
 
@@ -144,7 +144,7 @@ deleteTicket.querySelector(".okBtn").addEventListener("click", (e) => {
     deleteTicket.classList.add("hidden");
   };
 
-  xhr.open("DELETE", "http://localhost:7070/" + currentTicket.id);
+  xhr.open("DELETE", "https://backend-44i7.onrender.com/" + currentTicket.id);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
   xhr.send();
